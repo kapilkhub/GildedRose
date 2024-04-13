@@ -1,8 +1,11 @@
 ﻿namespace GildedRoseKata.Extensions
 {
-	public static class ItemQuality
+	internal static class ItemQuality
 	{
-
+		/// <summary>
+		/// process quality for other roses
+		/// </summary>
+		/// <param name="item"></param>
 		public static void ProcessOtherRoseQuality(this Item item)
 		{
 			if (item.SellIn > 0)
@@ -16,6 +19,11 @@
 			item.Quality = item.Quality < 0 ? 0 : item.Quality;
 			item.SellIn--;
 		}
+
+		/// <summary>
+		/// process quality for Conjured Rose Type
+		/// </summary>
+		/// <param name="item"></param>
 		public static void ProcessConjuredQuality(this Item item)
 		{
 			if (item.SellIn > 0)
@@ -30,6 +38,10 @@
 			item.SellIn--;
 		}
 
+		/// <summary>
+		/// Process Quality for Aged Brie
+		/// </summary>
+		/// <param name="item"></param>
 		public static void ProcessAgedBrieQuaity(this Item item)
 		{
 			if (item.SellIn <= 0)
@@ -45,6 +57,10 @@
 			item.SellIn--;
 		}
 
+		/// <summary>
+		/// Process Quality for Backstage Passes
+		/// </summary>
+		/// <param name="item"></param>
 		public static void ProcessBackstagePassesQuality(this Item item)
 		{
 			if (item.SellIn > 0)
