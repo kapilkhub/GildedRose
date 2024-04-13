@@ -16,7 +16,7 @@ namespace GildedRoseTests.OtherRoseTests
 		[Theory]
 		[InlineData(RoseName.Dexterity, 7,  6)]
 		[InlineData(RoseName.Mongoose, 7, 6)]
-		[InlineData(RoseName.Conjured, 7, 6)]
+	
 		public void other_rose_qualty_test_for_positive_sellin_days(string roseName, int currentQuality, int expectedQuality)
 		{
 			var items = new List<Item>
@@ -42,7 +42,7 @@ namespace GildedRoseTests.OtherRoseTests
 		[Theory]
 		[InlineData(RoseName.Dexterity, 7, 5)]
 		[InlineData(RoseName.Mongoose, 4, 2)]
-		[InlineData(RoseName.Conjured, 9, 7)]
+		
 		public void other_rose_qualty_test_for_zero_or_less_sellin_days(string roseName, int currentQuality, int expectedQuality)
 		{
 			var items = new List<Item>
