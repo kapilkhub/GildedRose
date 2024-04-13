@@ -13,67 +13,62 @@ namespace GildedRoseKata
         public void UpdateQuality()
         {
 
-            foreach (var item in Items)
+            foreach (Item item in Items)
             {
-                
-            }
-
-            for (var i = 0; i < Items.Count; i++)
-            {
-                if (Items[i].Name != RoseName.AgedBrie && Items[i].Name != RoseName.BackstagePasses)
+                if (item.Name != RoseName.AgedBrie && item.Name != RoseName.BackstagePasses)
                 {
-					if (Items[i].Quality > 0 && Items[i].Name != RoseName.Sulfuras)
+					if (item.Quality > 0 && item.Name != RoseName.Sulfuras)
 					{
-						Items[i].Quality = Items[i].Quality - 1;
+						item.Quality = item.Quality - 1;
 					}
 				}
                 else
                 {
-                    if (Items[i].Quality < 50)
+                    if (item.Quality < 50)
                     {
-                        Items[i].Quality = Items[i].Quality + 1;
+                        item.Quality = item.Quality + 1;
 
-                        if (Items[i].Name == RoseName.BackstagePasses)
+                        if (item.Name == RoseName.BackstagePasses)
                         {
-							if (Items[i].SellIn < 11 && Items[i].Quality < 50)
+							if (item.SellIn < 11 && item.Quality < 50)
 							{
-								Items[i].Quality = Items[i].Quality + 1;
+								item.Quality = item.Quality + 1;
 							}
 
-							if (Items[i].SellIn < 6 && Items[i].Quality < 50)
+							if (item.SellIn < 6 && item.Quality < 50)
 							{
-								Items[i].Quality = Items[i].Quality + 1;
+								item.Quality = item.Quality + 1;
 							}
 						}
                     }
                 }
 
-                if (Items[i].Name != RoseName.Sulfuras)
+                if (item.Name != RoseName.Sulfuras)
                 {
-                    Items[i].SellIn = Items[i].SellIn - 1;
+                    item.SellIn = item.SellIn - 1;
                 }
 
-                if (Items[i].SellIn < 0)
+                if (item.SellIn < 0)
                 {
-                    if (Items[i].Name != RoseName.AgedBrie)
+                    if (item.Name != RoseName.AgedBrie)
                     {
-                        if (Items[i].Name != RoseName.BackstagePasses)
+                        if (item.Name != RoseName.BackstagePasses)
                         {
-							if (Items[i].Quality > 0 && Items[i].Name != RoseName.Sulfuras)
+							if (item.Quality > 0 && item.Name != RoseName.Sulfuras)
 							{
-								Items[i].Quality = Items[i].Quality - 1;
+								item.Quality = item.Quality - 1;
 							}
 						}
                         else
                         {
-                            Items[i].Quality = 0;
+                            item.Quality = 0;
                         }
                     }
                     else
                     {
-                        if (Items[i].Quality < 50)
+                        if (item.Quality < 50)
                         {
-                            Items[i].Quality = Items[i].Quality + 1;
+                            item.Quality = item.Quality + 1;
                         }
                     }
                 }
