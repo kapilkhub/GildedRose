@@ -16,14 +16,11 @@ namespace GildedRoseKata
             {
                 if (Items[i].Name != RoseName.AgedBrie && Items[i].Name != RoseName.BackstagePasses)
                 {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != RoseName.Sulfuras)
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
-                }
+					if (Items[i].Quality > 0 && Items[i].Name != RoseName.Sulfuras)
+					{
+						Items[i].Quality = Items[i].Quality - 1;
+					}
+				}
                 else
                 {
                     if (Items[i].Quality < 50)
@@ -32,22 +29,16 @@ namespace GildedRoseKata
 
                         if (Items[i].Name == RoseName.BackstagePasses)
                         {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
+							if (Items[i].SellIn < 11 && Items[i].Quality < 50)
+							{
+								Items[i].Quality = Items[i].Quality + 1;
+							}
 
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
+							if (Items[i].SellIn < 6 && Items[i].Quality < 50)
+							{
+								Items[i].Quality = Items[i].Quality + 1;
+							}
+						}
                     }
                 }
 
@@ -62,14 +53,11 @@ namespace GildedRoseKata
                     {
                         if (Items[i].Name != RoseName.BackstagePasses)
                         {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != RoseName.Sulfuras)
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
+							if (Items[i].Quality > 0 && Items[i].Name != RoseName.Sulfuras)
+							{
+								Items[i].Quality = Items[i].Quality - 1;
+							}
+						}
                         else
                         {
                             Items[i].Quality = 0;
