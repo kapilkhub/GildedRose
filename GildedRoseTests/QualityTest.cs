@@ -11,6 +11,9 @@ namespace GildedRoseTests
 			Program.Main(new string[] { "30" });
 		}
 
+		/// <summary>
+		/// test for quality is negative
+		/// </summary>
 		[Fact]
 		public void quality_of_items_cannot_be_negative()
 		{
@@ -18,6 +21,9 @@ namespace GildedRoseTests
 			Assert.False(negativeQuality);
 		}
 
+		/// <summary>
+		/// except for sulfuras , quality cannot go over 50
+		/// </summary>
 		[Fact]
 		public void quality_of_items_cannot_be_more_than_50()
 		{
@@ -25,6 +31,9 @@ namespace GildedRoseTests
 			Assert.False(quality);
 		}
 
+		/// <summary>
+		/// Sulfuras quality will always be 80
+		/// </summary>
 		[Fact]
 		public void quality_of_Sulfuras_should_always_be_80()
 		{

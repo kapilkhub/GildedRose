@@ -11,6 +11,9 @@ namespace GildedRoseKata
             this.Items = Items;
         }
 
+        /// <summary>
+        /// Update Quality for Item
+        /// </summary>
         public void UpdateQuality()
         {
             foreach (Item item in Items)

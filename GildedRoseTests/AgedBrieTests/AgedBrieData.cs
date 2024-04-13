@@ -3,6 +3,9 @@ using Xunit;
 
 namespace GildedRoseTests.AgedBrieTests
 {
+	/// <summary>
+	/// Data for AgrieBrie test class.
+	/// </summary>
 	internal class AgedBrieData : TheoryData<AgedBrie>
 	{
 		public AgedBrieData()
