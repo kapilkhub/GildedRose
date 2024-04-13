@@ -55,7 +55,7 @@ namespace GildedRoseKata
 
         private void UpdateAgedBrieQuaity(Item item) 
         {
-            if (item.SellIn < 0)
+            if (item.SellIn <= 0)
             {
                 item.Quality += 2;
             }
