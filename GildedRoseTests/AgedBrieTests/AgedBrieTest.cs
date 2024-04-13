@@ -13,7 +13,7 @@ namespace GildedRoseTests.AgedBrieTests
 		/// <param name="data"></param>
 		[Theory]
         [ClassData(typeof(AgedBrieData))]
-        public void aged_brie_quality_increases_as_older_it_gets(AgedBrie data)
+        public void aged_brie_quality_increases_as_older_it_gets_but_never_goes_beyond_50(AgedBrie data)
         {
             //Arange 
             var Items = new List<Item>
