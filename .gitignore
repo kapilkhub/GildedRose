@@ -298,3 +298,8 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 .vscode
+/GildedRoseTests/GildedRoseTests.v3.ncrunchproject
+/GildedRoseTests/ApprovalTest.ThirtyDays.verified.txt
+/.NCrunch_GildedRose/StoredText
+/.NCrunch_GildedRose/StoredText/6cee3a28b1ce47d29ba03ca7ec5af6b3
+/.NCrunch_GildedRose/StoredText/e205f7ce0a8846698e35082d515ba857
