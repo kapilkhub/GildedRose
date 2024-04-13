@@ -12,6 +12,12 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
+
+            foreach (var item in Items)
+            {
+                
+            }
+
             for (var i = 0; i < Items.Count; i++)
             {
                 if (Items[i].Name != RoseName.AgedBrie && Items[i].Name != RoseName.BackstagePasses)
