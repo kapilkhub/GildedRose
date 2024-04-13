@@ -4,7 +4,7 @@ namespace GildedRoseKata
 {
 	public class GildedRose
     {
-        IList<Item> Items;
+		readonly IList<Item>  Items;
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
@@ -15,64 +15,86 @@ namespace GildedRoseKata
 
             foreach (Item item in Items)
             {
-                if (item.Name != RoseName.AgedBrie && item.Name != RoseName.BackstagePasses)
+                switch (item.Name)
                 {
-					if (item.Quality > 0 && item.Name != RoseName.Sulfuras)
-					{
-						item.Quality = item.Quality - 1;
-					}
-				}
-                else
-                {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-
-                        if (item.Name == RoseName.BackstagePasses)
-                        {
-							if (item.SellIn < 11 && item.Quality < 50)
-							{
-								item.Quality = item.Quality + 1;
-							}
-
-							if (item.SellIn < 6 && item.Quality < 50)
-							{
-								item.Quality = item.Quality + 1;
-							}
-						}
-                    }
+                    case RoseName.Dexterity:
+                    case RoseName.Mongoose:
+                    case RoseName.Conjured:
+                        UpdateOtherRoseQuality(item);
+						item.SellIn--;
+						break;
+                    case RoseName.AgedBrie:
+						UpdateAgedBrieQuaity(item);
+						item.SellIn--;
+						break;
+                    case RoseName.BackstagePasses:
+                        UpdateBackstagePassQuality(item);
+						item.SellIn--;
+						break;
+                    default:
+                        break;
                 }
-
-                if (item.Name != RoseName.Sulfuras)
-                {
-                    item.SellIn = item.SellIn - 1;
-                }
-
-                if (item.SellIn < 0)
-                {
-                    if (item.Name != RoseName.AgedBrie)
-                    {
-                        if (item.Name != RoseName.BackstagePasses)
-                        {
-							if (item.Quality > 0 && item.Name != RoseName.Sulfuras)
-							{
-								item.Quality = item.Quality - 1;
-							}
-						}
-                        else
-                        {
-                            item.Quality = 0;
-                        }
-                    }
-                    else
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-                }
-            }
+			
+			}
         }
+
+
+        private void UpdateOtherRoseQuality(Item item)
+        {
+            if (item.SellIn > 0)
+            {
+				item.Quality -= 1;
+			}
+            else 
+            {
+                item.Quality -= 2;
+            }
+		    item.Quality = item.Quality < 0 ? 0 : item.Quality;
+
+		}
+
+        private void UpdateAgedBrieQuaity(Item item) 
+        {
+            if (item.SellIn < 0)
+            {
+                item.Quality += 2;
+            }
+            else
+            {
+				item.Quality++;
+			}
+
+            item.Quality  = item.Quality > 50 ? 50 : item.Quality;
+            
+
+		}
+
+        private void UpdateBackstagePassQuality(Item item)
+        {
+			
+			if (item.SellIn > 0)
+            {
+                if (item.SellIn > 10)
+                {
+                    item.Quality++;
+                }
+                else if (item.SellIn <= 10 && item.SellIn > 5)
+                {
+                    item.Quality += 2;
+                }
+                else if (item.SellIn <= 5) 
+                {
+					item.Quality += 3;
+				}
+			}
+            else 
+            {
+                item.Quality = 0;
+            }
+
+			item.Quality = item.Quality>50 ?50: item.Quality;
+			
+		}
+        
     }
 }
